@@ -8,7 +8,7 @@ public class PairSum1 {
     public static boolean pairsum(ArrayList<Integer> arr,int target) {
         //brute force apporach
         for (int i = 0; i < arr.size(); i++) {
-            for (int j = 0; j < arr.size(); j++) {
+            for (int j = i+1; j < arr.size(); j++) {
                 if (arr.get(i) + arr.get(j) == target)
                     return true;
             }
@@ -22,6 +22,6 @@ public class PairSum1 {
         arr.add(3);
         arr.add(5);
         arr.add(6);
-        System.out.println( pairsum(arr,5));
+        System.out.println( pairsum(arr,3));
     }
 }
