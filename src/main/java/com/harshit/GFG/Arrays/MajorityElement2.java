@@ -26,6 +26,7 @@ public class MajorityElement2 {
             if(nums==candidate)
                 freq++;
         }
+//        verifying
         if(freq>arr.length/2)
             System.out.println(candidate);
         else
