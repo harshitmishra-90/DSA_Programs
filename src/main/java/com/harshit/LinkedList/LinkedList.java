@@ -71,6 +71,77 @@ public class LinkedList {
         curr1.next=newNode;
         newNode.next=curr2;
     }
+    public void removeFirst()
+    {
+        if(head==null||head.next==null)
+        {
+            head=tail=null;
+            System.out.println("no element in linkedlist");
+            return;
+        }
+
+        head =head.next;
+    }
+    public void removeLast()
+    {
+        if(head==null||head.next==null)
+        {
+
+            head=tail=null;
+            System.out.println("no element ");
+            return ;
+        }
+        Node temp=head;
+        if(temp.next.next==null)
+        {
+            temp.next=null;
+            tail=temp;
+            return;
+
+        }
+        while(temp.next.next!=null)
+        {
+            temp=temp.next;
+        }
+        temp.next=null;
+        tail=temp;
+    }
+    public int search(int key)
+    {
+        int indx=0;
+        Node temp=head;
+        while(temp!=null)
+        {
+            if(temp.data==key)
+                return indx;
+            temp=temp.next;
+            indx++;
+        }
+
+        return -1;
+    }
+    public int helper(Node head ,int key)
+    {
+        if(head==null)
+            return -1;
+        if(head.data==key)
+            return 0;
+        int indx=helper(head.next,key);
+        if(indx==-1)
+        {
+            return -1;
+        }
+        return indx+1;
+    }
+    public int RecursiveSearch(int key)
+    {
+        Node temp=head;
+        return helper(temp,key);
+    }
+    public void reverse()
+    {
+
+    }
 
     static void main() {
 
@@ -81,5 +152,7 @@ public class LinkedList {
         ll.print();
         ll.addMiddle(1,15);
         ll.print();
+        System.out.println("element is present in index "+ll.search(20));
+        System.out.println("element is present in index "+ll.RecursiveSearch(20));
     }
 }
