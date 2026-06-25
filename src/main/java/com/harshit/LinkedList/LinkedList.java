@@ -141,8 +141,75 @@ public class LinkedList {
     public void reverse()
     {
 
+
+        Node prev=null;
+        Node curr=tail=head;
+        Node next;
+        while(curr!=null)
+        {
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+        }
+       head=prev;
+    }
+    public void removeNthNode(int indx)
+    {
+        if(head==null)
+        {
+            return ;
+        }
+        if(indx==0)
+        {
+            head=head.next;
+            return ;
+        }
+        Node temp=head;
+        int n=1;
+        while(temp!=null&&n<indx)
+        {
+            temp=temp.next;
+            n++;
+        }
+        temp.next=temp.next.next;
+        return ;
+    }
+    public int size() {
+        int count = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
     }
 
+    public void removeNthNode1(int indx)
+    {
+        //remove the nth node from the end
+        if(head==null)
+        {
+            return;
+        }
+        int n=size();
+        if(n==indx)
+        {
+            head=head.next ;
+            return;
+        }
+        int i=0;
+        Node temp=head;
+        while(temp!=null&&i<n-indx-1)
+        {
+            temp=temp.next;
+            i++;
+        }
+        temp.next=temp.next.next;
+        return;
+    }
     static void main() {
 
         LinkedList ll =new LinkedList();
@@ -154,5 +221,9 @@ public class LinkedList {
         ll.print();
         System.out.println("element is present in index "+ll.search(20));
         System.out.println("element is present in index "+ll.RecursiveSearch(20));
+        ll.reverse();
+        ll.print();
+        ll.removeNthNode1(3);
+        ll.print();
     }
 }
