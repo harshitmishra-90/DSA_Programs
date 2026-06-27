@@ -1,4 +1,4 @@
-package com.harshit.GFG;
+package com.harshit.GFG.Strings;
 
 public class AlternateString {
     public static String atlernate(String word1, String word2) {
