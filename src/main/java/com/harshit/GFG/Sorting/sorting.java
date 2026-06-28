@@ -1,6 +1,6 @@
 package com.harshit.GFG.Sorting;
 
-public class Sorting {
+public class sorting {
         public static void swap(int arr[],int a,int b)
         {
             int temp=arr[a];
