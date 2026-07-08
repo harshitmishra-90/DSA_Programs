@@ -1,7 +1,7 @@
 package com.harshit.arrrys;
 
 public class PivotElment {
-
+//prifix sum
     public int pivotIndex(int[] nums) {
         int totalSum = 0;
 
