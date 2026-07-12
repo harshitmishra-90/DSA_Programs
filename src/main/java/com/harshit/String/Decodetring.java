@@ -3,6 +3,7 @@ package com.harshit.String;
 import java.util.Stack;
 
 public class Decodetring {
+    //pg 34
     public String decodeString(String s) {
         Stack<Integer> countStack = new Stack<>();
         Stack<StringBuilder> stringStack = new Stack<>();
