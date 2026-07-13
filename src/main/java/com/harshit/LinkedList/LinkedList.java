@@ -5,7 +5,7 @@ public class LinkedList {
     public static Node tail;
     public static class Node{
         int data;
-        Node next;
+      public  Node next;
         //store the reference or address of node
         public Node(int data)
         {
