@@ -1,8 +1,9 @@
 package com.harshit.BinaryTree;
 
 
+import javax.swing.tree.TreeNode;
 
-public class Depth {
+//public class Depth {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -18,17 +19,17 @@ public class Depth {
      *     }
      * }
      */
-        public int maxDepth(TreeNode root) {
-            if (root == null) {
-                return 0;
-            }
-
-            int leftDepth = maxDepth(root.left);
-            int rightDepth = maxDepth(root.right);
-
-            return 1 + Math.max(leftDepth, rightDepth);
-        }
-    }
+//        public int maxDepth(TreeNode root) {
+//            if (root == null) {
+//                return 0;
+//            }
+//
+//            //int leftDepth = maxDepth(root.left);
+//            //int rightDepth = maxDepth(root.right);
+//
+//         //   return 1 + Math.max(leftDepth, rightDepth);
+//
+//    }
 
 //Given the root of a binary tree, return its maximum depth.
 //
