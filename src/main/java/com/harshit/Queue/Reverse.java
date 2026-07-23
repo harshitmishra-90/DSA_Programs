@@ -3,7 +3,7 @@ package com.harshit.Queue;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
-
+//question no. 25 and page no. -45
 public class Reverse {
     public static Queue<Integer> reverse(Queue<Integer> q) {
 
