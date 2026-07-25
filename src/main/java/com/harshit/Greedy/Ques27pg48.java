@@ -25,7 +25,7 @@ public class Ques27pg48 {
             if(W>=weight[idx])
             {
                 finalval+=val[idx];
-                W-=weight[idx]Arrays.sort(ratio, Comparator.comparingDouble(o->o[1]));;
+                W-=weight[idx];
             }
             else {
                 finalval+=(ratio[i][1]*W);
