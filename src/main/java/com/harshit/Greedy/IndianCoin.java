@@ -3,7 +3,7 @@ package com.harshit.Greedy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-
+//Ques30pg50
 public class IndianCoin {
     static void main() {
         Integer coins[]={1,2,5,10,20,50,100,500,2000};
