@@ -1,4 +1,4 @@
-package com.harshit.HashMap;
+package com.harshit.Hashing.HashMap;
 
 import java.util.HashMap;
 import java.util.Set;
