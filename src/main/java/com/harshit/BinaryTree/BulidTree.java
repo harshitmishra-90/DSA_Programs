@@ -106,6 +106,16 @@ public class BulidTree {
             int rn = CountNodes(root.right);
             return ln+rn+1;
         }
+        public static int SumNode(node root)
+        {
+            if(root==null)
+            {
+                return 0;
+            }
+            int ln=SumNode(root.left);
+            int rn=SumNode(root.right);
+            return ln+rn+ root.root;
+        }
     }
 
    public static void main(String[] args) {
@@ -123,6 +133,7 @@ public class BulidTree {
         System.out.println();
         System.out.println("Height of the tree : "+tree.height(root));
        System.out.println(tree.CountNodes(root));
+       System.out.println(tree.SumNode(root));
 
     }
 }
