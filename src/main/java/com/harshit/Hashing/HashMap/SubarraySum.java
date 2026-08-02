@@ -3,7 +3,7 @@ package com.harshit.Hashing.HashMap;
 import java.util.HashMap;
 
 public class SubarraySum {
-    static void main() {
+   public static void main(String[] args) {
         int arr[]={15,-2,2,-8,1,7,10};
         HashMap<Integer ,Integer>maps=new HashMap<>();
         int len=0;

@@ -90,9 +90,25 @@ public class BulidTree {
                 }
             }
         }
+        public static int height(node root)
+        {
+            if(root==null)
+                return 0;
+            int lh=height(root.left);
+            int rh=height(root.right);
+            return Math.max(lh,rh)+1;
+        }
+        public static int CountNodes(node root)
+        {
+            if(root==null)
+                return 0;
+            int ln=CountNodes(root.left);
+            int rn = CountNodes(root.right);
+            return ln+rn+1;
+        }
     }
 
-    static void main() {
+   public static void main(String[] args) {
         int node[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree =new BinaryTree();
         node root =tree.buildtree(node);
@@ -104,6 +120,9 @@ public class BulidTree {
         tree.postOrder(root);
         System.out.println();
         tree.levelOrder(root);
+        System.out.println();
+        System.out.println("Height of the tree : "+tree.height(root));
+       System.out.println(tree.CountNodes(root));
 
     }
 }
