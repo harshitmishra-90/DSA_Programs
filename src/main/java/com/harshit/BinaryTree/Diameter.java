@@ -33,7 +33,7 @@ public class Diameter {
            int rh=height(root.right);
            return lh+rh+1;
        }
-       public static int diameter(node root)
+       public static int diameter(node root)  //O(n^2)
        {
            if(root==null)
                return 0;
@@ -45,6 +45,49 @@ public class Diameter {
 
            return Math.max(self,Math.max(ld,rd));
        }
+//       public static boolean isIdentical(node root,node subroot)
+//       {
+//           if(root ==null && subroot ==null)
+//               return true;
+//           if((root==null&&subroot!=null)||(root!=null&&subroot==null))
+//               return false;
+//           if(!isIdentical(root.left,subroot.left))
+//               return false;
+//           if(!isIdentical(root.right,subroot.right))
+//               return false;
+//           return true;
+//       }
+       public static boolean isIdentical(node root,node subroot)
+       {
+           if(root == null && subroot == null)
+               return true;
+
+           if(root == null || subroot == null)
+               return false;
+
+           if(root.root != subroot.root)
+               return false;
+
+           return isIdentical(root.left, subroot.left)
+                   && isIdentical(root.right, subroot.right);
+       }
+       public static boolean isSubtree(node root,node subroot)
+       {
+           if(root==null)
+           {
+               return false;
+           }
+           if(root.root==subroot.root)
+           {
+               if(isIdentical(root,subroot))
+               {
+                   return true;
+               }
+           }
+           boolean leftans =isSubtree(root.left,subroot);
+           boolean rightans=isSubtree(root.right,subroot);
+           return leftans||rightans;
+       }
 
    }
     public static void main(String[] args) {
@@ -53,6 +96,14 @@ public class Diameter {
         node root=tree.buildtree(node);
         System.out.println(root.root);
         System.out.println("diameter : "+tree.diameter(root));
+        int subnode[] = {
+                2,
+                5,-1,-1,
+                6,-1,-1
+        };
+        BinaryTree.idx=-1;
+        node subroot=tree.buildtree(subnode);
+        System.out.println(tree.isSubtree(root,subroot));
 
     }
 }
