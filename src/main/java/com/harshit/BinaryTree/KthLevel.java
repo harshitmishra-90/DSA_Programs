@@ -1,5 +1,6 @@
 package com.harshit.BinaryTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -61,6 +62,36 @@ public class KthLevel {
 //                k++ is post-increment.
 //                    It passes the current value of k to the function, then increments the local variable after the call.
 //                    Since Java passes primitives (int) by value, the increment does not affect the value inside the recursive call.
+            }
+            static boolean getpath(node root,int n,ArrayList<node> path)
+            {
+                path.add(root);
+                if(root==null)
+                    return false;
+                if(root.data==n)
+                    return true;
+                Boolean foundleft=getpath(root.left,n,path);
+                boolean foundright=getpath(root.right,n,path);
+                if(foundleft||foundright)
+                    return true;
+                path.remove(path.size()-1);
+                return false;
+            }
+            public static node lca(node root,int m1,int m2)
+            {
+                ArrayList<node> arr1=new ArrayList<>();
+                ArrayList<node> arr2=new ArrayList<>();
+                getpath(root,m1,arr1);
+                getpath(root,m2,arr2);
+                //last comman ancestor
+                int i=0;
+                for(;i<arr1.size() && i<arr2.size();i++)
+                {
+                    if(arr1.get(i)!=arr2.get(i))
+                        break;
+                }
+                node lca=arr1.get(i-1);
+                return lca;
 
             }
 
