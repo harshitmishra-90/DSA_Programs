@@ -44,21 +44,19 @@ public class TopView {
                 else
                     queue.add(null);
             }
-            if(!maps.containsKey(curr.hd))
-            {
-                maps.put(curr.hd, curr.node);
+            else {
+                if (!maps.containsKey(curr.hd)) {
+                    maps.put(curr.hd, curr.node);
+                }
+                if (curr.node.left != null) {
+                    queue.add(new info(curr.node.left, curr.hd-1));
+                    min = Math.min(min, curr.hd-1);
+                }
+                if (curr.node.right != null) {
+                    queue.add(new info(curr.node.right, curr.hd+1));
+                    max = Math.max(max, curr.hd+1);
+                }
             }
-            if(curr.node.left!=null)
-            {
-                queue.add(new info(curr.node.left,curr.hd-1));
-                min=Math.min(min,curr.hd-1);
-            }
-            if(curr.node.right!=null)
-            {
-                queue.add(new info(curr.node.right,curr.hd-1));
-                max=Math.max(max,curr.hd+1);
-            }
-
         }
         for(int i=min;i<=max;i++)
         {
@@ -83,6 +81,7 @@ public class TopView {
         root.left.right=new node(5);
         root.right.right=new node(6);
         root.right.right=new node(7);
+        topview(root);
 
     }
 }
