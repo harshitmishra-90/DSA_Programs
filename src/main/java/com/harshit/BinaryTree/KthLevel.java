@@ -94,7 +94,21 @@ public class KthLevel {
                 return lca;
 
             }
+                public static node lca2(node root, int n1,int n2)
+                {
+                    if(root==null)
+                        return null;
+                    if(root.data==n1||root.data==n2)
+                        return root;
+                    node leftlca=lca2(root.left,n1,n2);
+                    node rightlca=lca2(root.right,n1,n2);
+                    if(leftlca==null)
+                        return rightlca;
+                    if(rightlca==null)
+                        return leftlca;
+                    return root;
 
+                }
         public static void main(String[] args) {
             node root =new node(1);
             root.left=new node(2);
@@ -107,6 +121,7 @@ public class KthLevel {
             LevelOrder(root,3);
             System.out.println();
             KthlevelOrder(root,3,1);
+            System.out.println(lca2(root,4,5).data);
 
         }
 }
