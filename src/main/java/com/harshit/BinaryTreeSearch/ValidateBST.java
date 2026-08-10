@@ -1,6 +1,7 @@
 package com.harshit.BinaryTreeSearch;
 
 public class ValidateBST {
+    //code for the ValidateBST, MirrorBST and Balance the bst
     static class node {
         int data;
         node left;
@@ -43,6 +44,16 @@ public class ValidateBST {
         }
         return validateBST(root.left, root, min) && validateBST(root.right, max, root);
     }
+    public static node Mirror(node root)
+    {
+        if(root==null)
+            return null;
+        node leftSide =Mirror(root.left);
+        node rightSide=Mirror(root.right);
+        root.left=rightSide;
+        root.right=leftSide;
+        return root;
+    }
 
     public static void main(String[] args) {
 
@@ -54,5 +65,7 @@ public class ValidateBST {
         Inorder(root);
         System.out.println();
         System.out.println(validateBST(root,null,null));
+        Mirror(root);
+        Inorder(root);
     }
 }
