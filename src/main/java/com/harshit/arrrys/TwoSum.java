@@ -1,5 +1,6 @@
 package com.harshit.arrrys;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TwoSum {
@@ -17,7 +18,7 @@ public class TwoSum {
     }
     public static void main(String[] args) {
         int arr[]={2,3,5};
-        System.out.println(sum(arr,5));
+        System.out.println(Arrays.toString(sum(arr,5)));
 
     }
 }
