@@ -1,5 +1,7 @@
 package com.harshit.DyanmicProgramming;
 
+import java.util.Arrays;
+
 public class ClimbingStairs {
     public static int countways(int n, int[] f)
     {
@@ -11,7 +13,7 @@ public class ClimbingStairs {
         {
             return 0;
         }
-        if(f[n]!=0)
+        if(f[n]!=-1)
         {
             return f[n];
         }
@@ -34,6 +36,7 @@ public class ClimbingStairs {
 
         int n=5;
         int[] f=new int[n+1];
+        Arrays.fill(f,-1);
         System.out.println(countways(n,f));
     }
 }
