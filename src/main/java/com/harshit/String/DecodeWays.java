@@ -3,8 +3,29 @@ package com.harshit.String;
 
 //leetcode question no. 91
 public class DecodeWays {
+    public static int decodeWays(String s,int i)
+    {
+        if(s.length()==i)
+        {
+            return 1;
+        }
+        if(s.charAt(0)=='0')
+            return 0;
+        int ways=decodeWays(s,i+1);
+        if(i+1<s.length())
+        {
+            int nums=(s.charAt(i)-'0')*10+(s.charAt(i+1)-'0');
+            if(nums>=10&&nums<=26)
+            {
+                ways+=decodeWays(s,i+2);
+            }
+        }
+        return ways;
+    }
     public static void main(String[] args) {
 
+        String s="226";
+        System.out.println(decodeWays(s,0));
     }
 }
 
